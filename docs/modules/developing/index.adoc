@@ -1,5 +1,1 @@
 = Developing StackRox
-
-include::remote-debug-go.adoc[leveloffset=+2]
-include::remote-hot-reload.adoc[leveloffset=+2]
-include::ui/index.adoc[leveloffset=+2]
