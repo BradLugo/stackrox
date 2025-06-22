@@ -1,5 +1,5 @@
 :toc: left
-:toclevels: 4
+:toclevels: 3
 :sectnums:
 :source-highlighter: rouge
 :icons: font
