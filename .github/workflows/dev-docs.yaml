@@ -1,0 +1,35 @@
+name: Developer Docs
+on:
+  push:
+    branches: [docs]
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
+
+    - name: Create output directory
+      run: |
+        mkdir -p docs/build
+
+    - name: Generate reference
+      id: adocbuild
+      uses: tonynv/asciidoctor-action@master
+      with:
+        program: |
+          asciidoctor \
+            --backend=html5 \
+            --destination-dir docs/build \
+            --out-file index.html \
+            --attribute toc2 \
+            docs/index.adoc
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: docs/build
