@@ -1,0 +1,7 @@
+= UI
+
+include::[FE] Accessibility.adoc[leveloffset=+3]
+include::[FE] How-to-run-vuln-audit-and-analysis-for-UI-dependencies.adoc[leveloffset=+3]
+include::[FE] Connecting-your-UI-to-a-large-scale-cluster.adoc[leveloffset=+3]
+include::[FE] How-to-update-vulnerable-UI-dependency.adoc[leveloffset=+3]
+include::[FE] Setting-up-multiple-clusters-for-local-FE-development.adoc[leveloffset=+3]

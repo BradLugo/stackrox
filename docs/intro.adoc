@@ -1,0 +1,10 @@
+= Introduction
+
+StackRox the
+
+== Architecture
+
+* Central
+* Sensor
+* Collector
+* Scanner V4

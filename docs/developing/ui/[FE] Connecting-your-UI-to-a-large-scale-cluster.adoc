@@ -1,0 +1,35 @@
+= Connecting your UI to a large-scale cluster
+
+If you need to test UI changes against a large-scale environment (lots
+of deployments, lots of violations, lots of images, lots of CVEs, etc.),
+follow these steps.
+
+== Terminal Tab 1
+
+For all these commands, your CWD should be the `ui/` directory of the
+Rox repo
+
+. Create a cluster (e.g. on OpenShift or GKE) with an initial
+node count of 5.
+. Connect to that remote cluster with `yarn connect <resource-name>`.
+. Make sure you have exported the `MAIN_IMAGE_TAG` you want to deploy,
+or make sure your master branch is clean.
+. `export STORAGE=pvc`
+. `export STORAGE_CLASS=faster`
+. `yarn deploy`
+. `kubectl -n stackrox set env deploy/sensor MUTEX_WATCHDOG_TIMEOUT_SECS=0`
+. `kubectl -n stackrox set env deploy/sensor ROX_FAKE_KUBERNETES_WORKLOAD=xlarge`
+. `kubectl -n stackrox patch deploy/sensor -p '{"spec":{"template":{"spec":{"containers":[{"name":"sensor","resources":{"requests":{"memory":"3Gi","cpu":"2"},"limits":{"memory":"12Gi","cpu":"4"}}}]}}}}'`
+. `kubectl -n stackrox set env deploy/central MUTEX_WATCHDOG_TIMEOUT_SECS=0 ROX_ROCKSDB=true`
+. `kubectl -n stackrox patch deploy/central -p '{"spec":{"template":{"spec":{"containers":[{"name":"central","resources":{"requests":{"memory":"3Gi","cpu":"2"},"limits":{"memory":"12Gi","cpu":"4"}}}]}}}}'`
+. `killall kubectl`
+. `yarn forward`
+
+== Terminal Tab 2
+
+Now, in another terminal tab, also with `ui/` as the CWD, run
+
+.  `yarn start`
+
+It will take a few minutes, but you should start to see the counts
+slowly climb. Scaling is done when the deployments reach around 10,000.
