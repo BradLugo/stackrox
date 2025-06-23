@@ -1,7 +1,6 @@
 name: stackrox
 version: ~
-title: StackRox Developer Documentation
+title: StackRox
 nav:
   - modules/ROOT/nav.adoc
   - modules/development/nav.adoc
-

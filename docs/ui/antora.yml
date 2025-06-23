@@ -1,5 +1,5 @@
 name: stackrox-ui
 version: ~
-title: StackRox UI Technical Documentation
+title: Web UI
 nav:
 - modules/ROOT/nav.adoc
