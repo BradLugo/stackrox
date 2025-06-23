@@ -40,7 +40,3 @@ scenario with `dompurify` it was `2.0.7`) and it'll update
 `yarn.lock` to add the entry that the dependency is resolved to this
 version
 . Commit updated `yarn.lock` file.
-
-== Related articles
-
-* How to run vuln audit and analysis for UI dependencies

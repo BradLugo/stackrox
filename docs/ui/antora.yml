@@ -1,0 +1,5 @@
+name: stackrox-ui
+version: ~
+title: StackRox UI Technical Documentation
+nav:
+- modules/ROOT/nav.adoc

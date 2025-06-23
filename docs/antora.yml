@@ -3,5 +3,5 @@ version: ~
 title: StackRox Developer Documentation
 nav:
   - modules/ROOT/nav.adoc
-  - modules/developing/nav.adoc
+  - modules/development/nav.adoc
 

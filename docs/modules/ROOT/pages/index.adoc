@@ -1,2 +1,4 @@
 = StackRox Developer Documentation
 
+This component should contain information that's relevant to most StackRox /
+RHACS developers.
