@@ -1,3 +1,4 @@
+.Getting Started
 * xref:darwin.adoc[]
 * xref:linux.adoc[]
-** xref:nix.adoc[]
+* xref:nix.adoc[]
