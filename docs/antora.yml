@@ -2,5 +2,7 @@ name: stackrox
 version: ~
 title: StackRox
 nav:
-  - modules/ROOT/nav.adoc
+  - modules/ROOT/nav-intro.adoc
+  - modules/getting-started/nav.adoc
   - modules/development/nav.adoc
+  - modules/ROOT/nav-end.adoc
