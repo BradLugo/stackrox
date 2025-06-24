@@ -1,1 +1,1 @@
-* xref:accessibility.adoc
+* xref:accessibility.adoc[]

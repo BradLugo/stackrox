@@ -1,4 +1,5 @@
-.Development
 * xref:index.adoc[]
-* xref:remote-debug-go.adoc[]
-* xref:remote-hot-reload.adoc[]
+** xref:remote-debug-go.adoc[]
+** xref:remote-hot-reload.adoc[]
+** xref:build-failures.adoc[]
+** xref:troubleshooting.adoc[]

@@ -1,3 +1,7 @@
 = CI
 
-Our CI systems are a bit complicated
+TODO: Describe our CI, which includes:
+
+* GitHub Actions
+* Openshift CI
+* Konflux

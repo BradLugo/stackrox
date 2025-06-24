@@ -1,0 +1,6 @@
+= Architecture
+
+* Central
+* Sensor
+* Collector
+* Scanner V4

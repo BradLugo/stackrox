@@ -3,6 +3,8 @@ version: ~
 title: StackRox
 nav:
   - modules/ROOT/nav-intro.adoc
-  - modules/getting-started/nav.adoc
+  - modules/dev-getting-started/nav.adoc
   - modules/development/nav.adoc
+  - modules/dep-mgmt/nav.adoc
+  - modules/vuln-audit/nav.adoc
   - modules/ROOT/nav-end.adoc
