@@ -1,5 +1,3 @@
-* xref:index.adoc[]
-* xref:intro.adoc[]
 * xref:startup.adoc[]
 * xref:ci.adoc[]
 * xref:history.adoc[]

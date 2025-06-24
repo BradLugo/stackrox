@@ -2,4 +2,7 @@ name: stackrox-ui
 version: ~
 title: Web UI
 nav:
-- modules/ROOT/nav.adoc
+- modules/ROOT/nav-intro.adoc
+- modules/getting-started/nav.adoc
+- modules/development/nav.adoc
+- modules/ROOT/nav-end.adoc
