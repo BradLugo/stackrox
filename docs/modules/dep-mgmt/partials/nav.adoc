@@ -1,3 +1,2 @@
-.Dependency Management
 * xref:dep-mgmt:go.adoc[]
 * xref:dep-mgmt:ui.adoc[]

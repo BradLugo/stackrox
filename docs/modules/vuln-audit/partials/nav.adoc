@@ -1,3 +1,2 @@
-.Dependency vulnerability auditing
 * xref:vuln-audit:ui.adoc[]
 * xref:vuln-audit:go.adoc[]

@@ -1,10 +1,17 @@
 * xref:index.adoc[]
+** Getting started
 +
 --
 include::dev-getting-started:partial$nav.adoc[]
 --
 ** xref:remote-debug-go.adoc[]
 ** xref:remote-hot-reload.adoc[]
+** Dependency management
++
+--
+include::dep-mgmt:partial$nav.adoc[]
+--
+** Dependency vulnerability auditing
 +
 --
 include::dep-mgmt:partial$nav.adoc[]
