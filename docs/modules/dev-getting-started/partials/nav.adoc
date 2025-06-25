@@ -1,4 +1,4 @@
 .Getting Started
-* xref:darwin.adoc[]
-* xref:linux.adoc[]
-* xref:nix.adoc[]
+* xref:dev-getting-started:darwin.adoc[]
+* xref:dev-getting-started:linux.adoc[]
+* xref:dev-getting-started:nix.adoc[]
