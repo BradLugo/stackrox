@@ -1,1 +1,1 @@
-= Dependency management
+= Go dependencies
