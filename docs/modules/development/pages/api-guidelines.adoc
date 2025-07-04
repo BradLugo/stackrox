@@ -1,4 +1,4 @@
-= ACS API Guidelines
+= API Guidelines
 
 An overview of the set of standardized guidelines and practices to ensure that the APIs across different
 projects and teams adhere to a common structure and design. This consistency simplifies the process of understanding
