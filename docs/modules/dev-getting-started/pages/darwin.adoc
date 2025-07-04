@@ -1,7 +1,6 @@
 = Getting Started on Darwin
-:pp: {plus}{plus}
 
-== Change default shell to bash(Optional)
+== (Optional) Change default shell to bash
 
 The latest Macbook comes with zsh as default shell. You may change it to bash if you would like to.
 
@@ -158,6 +157,7 @@ One of the places where the codebase relies on Java is the end-to-end tests (qa-
  export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12
 
 == Install RocksDB
+_Legacy dependency._
 
 Currently we require v6.15.5 of rocksdb. The tl;dr is that the cgo library we use hasn't been updated to account for backwards incompatible changes made to the C{pp} library. All of the steps below are to compile and install the 6.15.5 version of rocksdb.
 

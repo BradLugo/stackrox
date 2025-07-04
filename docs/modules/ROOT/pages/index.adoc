@@ -1,4 +1,33 @@
 = StackRox Developer Documentation
 
-This component should contain information that's relevant to most StackRox /
-RHACS developers.
+_Please open a pull request if you see something incorrect about this
+documentation._
+
+== What is StackRox?
+
+StackRox is the upstream RHACS (Red Hat Advanced Cluster Security for Kubernetes),
+which provides a suite of security tools for Kubernetes clusetr
+administrators and developers.
+
+A few notable features of StackRox:
+
+* Container image vulnerability scanning
+* Managing compliance
+* Managing security policies
+* Managing network policies
+
+Visit the https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_security_for_kubernetes[RHACS Product Documentation]
+to learn more.
+
+== What is this site/repo?
+This is meant to be a technical handbook for StackRox developers. It will
+include detailed architecture breakdowns and developer guides for each component.
+
+== Where else you can find documentation
+
+* https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_security_for_kubernetes[RHACS Product Documentation]:
+Documentation for using RHACS as a Kubernetes cluster administrator.
+* https://spaces.redhat.com/display/RHACSENG/RHACS+Engineering+Home[RHACS Engineering wiki]:
+Private RHACS engineering wiki for internal operations.
+* For more specific details about each StackRox component, please check
+please check the documentation modules in the lower left corner.

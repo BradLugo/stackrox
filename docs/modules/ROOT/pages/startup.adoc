@@ -1,7 +1,12 @@
 = Startup
 
+The doc provides information about the startup mechanisms for every component
+shares. In this context, "startup" means what the container build, run, and
+initialization processes.
 
 == Pre-boot / build setup
+
+
 
 == Configure CA trust list
 

@@ -1,6 +1,7 @@
 = Architecture
 
-* Central
-* Sensor
-* Collector
-* Scanner V4
+The RHACS Product Documentation has an excellent chapter on the RHACS (a.k.a
+downstream StackRox) architecture.
+
+For more specific details about each StackRox component, please check
+please check the documentation modules in the lower left corner.

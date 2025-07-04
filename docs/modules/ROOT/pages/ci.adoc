@@ -1,7 +1,25 @@
 = CI
 
-TODO: Describe our CI, which includes:
+On this page, we'll go over what's involved in the StackRox CI process.
 
-* GitHub Actions
-* Openshift CI
-* Konflux
+// TODO(DO NOT MERGE): Add collector's process
+== Automated CI
+
+=== The infrastructure
+We have a few moving pieces so call those out first:
+
+* GitHub Actions, used for common building the upstream binaries and containers, as well as performing other common CI tasks such as linting,
+* Openshift CI. Mostly for running the StackRox E2E test suites. Our full E2E testing suite is quite comprehensive and require a fair amount of reasons, time, and security.
+* Konflux. Downstream build and release CI. This is currently mostly only relevant to the RHACS engineers.
+* GitHub Actions. Pretty much everything else. Includes building the upstream binaries, containers, runs unit tests and integration tests, linting, etc
+
+=== The Process
+
+The beginning of this journey starts with the builder image.
+
+TODO:
+
+* GHA runs make and bash scripts, lints, builds upstream binary, builds upstream containers, runs unit tests, runs integration tests, runs the scanner definitions update, runs the upstream release process
+* OSCI: Runs the E2E tests. Requires a few key outputs from the jobs in GHA. Details about each E2E test suite.
+*
+

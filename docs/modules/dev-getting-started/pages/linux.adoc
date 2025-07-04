@@ -1,13 +1,18 @@
-= Getting Started on Red Hat Enterprise Linux
+= Building on Linux
+:toc:
 
-This guide is tailored towards RHEL, but should work on other distros as well. +
+== Fedora/RHEL (and others)
+
+This guide is tailored towards RHEL, but it should work on other distros as well. +
 You might need to
 
-== Change default shell to bash(Optional)
+=== (Optional) Change default shell to bash
 
-The directions here are given for a bash shell. If you are using a Red Hat laptop the default shell should be bash. If it is not and you want to change it to bash you can do the following step.
+The directions here are given for a bash shell, though they should also work
+for zsh. If you are using a Red Hat laptop the default shell should be bash. If
+it is not and you want to change it to bash you can do the following step.
 
-. Launch the Terminal app
+. Launch the Terminal app (or your terminal emulator of choice)
 . Change default shell to bash
 +
 ----
@@ -16,7 +21,7 @@ The directions here are given for a bash shell. If you are using a Red Hat lapto
 
 . You'll be prompt to enter your password. Then, close the terminal and reopen it. The terminal will come back with bash prompt "$".
 
-== Install Development Tools
+=== Install Development Tools
 
 . Launch the Terminal app
 . Run the command to install the group Development Tools:
@@ -25,7 +30,7 @@ The directions here are given for a bash shell. If you are using a Red Hat lapto
  $ sudo dnf groupinstall 'Development Tools'
 ----
 
-=== Verify
+==== Verify
 
 . Run this command:
 +
@@ -39,7 +44,7 @@ The directions here are given for a bash shell. If you are using a Red Hat lapto
  gcc (GCC) 8.4.1 20200928 (Red Hat 8.4.1-1)
 ----
 
-== Install Docker
+=== Install Docker
 
 . Follow the directions https://docs.docker.com/engine/install/centos/[here] which are also summarized below.
 +
@@ -62,7 +67,7 @@ The directions here are given for a bash shell. If you are using a Red Hat lapto
 
 . Restarting you computer may be needed in order for the next step to work.
 
-=== Verify
+==== Verify
 
 . Run this command:
 +
@@ -78,7 +83,7 @@ The directions here are given for a bash shell. If you are using a Red Hat lapto
  (...)
 ----
 
-== Install minikube
+=== Install minikube
 
 . Follow the directions https://www.unixarena.com/2019/05/how-to-deploy-kubernetes-minikube-on-rhel-centos.html/[here]. +
 The steps are also given below:
@@ -119,12 +124,12 @@ The steps are also given below:
  sudo mv minikube docker-machine-driver-kvm2 /usr/local/bin/
 ----
 
-== Install Go
+=== Install Go
 
 . Please see https://github.com/stackrox/stackrox/blob/master/EXPECTED_GO_VERSION[here] for the latest version used at StackRox that you should download. +
 Follow the directions https://golang.org/doc/install[here] to install Go.
 
-=== Verify
+==== Verify
 
 . Run the command to inspect the version of Go that was just installed. It should be what you expect:
 +
@@ -134,34 +139,7 @@ Follow the directions https://golang.org/doc/install[here] to install Go.
  go version go1.16.5 linux/amd64 # This should reflect the version you just installed
 ----
 
-== Install RocksDB dependencies
-
-. Instructions for installing RocksDB dependencies can be found https://github.com/facebook/rocksdb/blob/master/INSTALL.md[here]. The steps for RHEL can be found below:
-+
-[,bash]
-----
- sudo yum install snappy-devel
-
- # If this fails, you may need to install snappy manually, using the following commands
- wget http://mirror.centos.org/centos/8/PowerTools/x86_64/os/Packages/snappy-devel-1.1.8-3.el8.x86_64.rpm
- sudo yum install cmake-filesystem
- sudo rpm -Uvh snappy-devel-1.1.8-3.el8.x86_64.rpm
-----
-
-== Install RocksDB
-
-. Download & install rocksdb v6.15.4: https://github.com/facebook/rocksdb/releases/tag/v6.15.4[GitHub Release Page]
-+
-----
- wget https://github.com/facebook/rocksdb/archive/refs/tags/v6.15.4.tar.gz
- tar -xvf v6.15.4.tar.gz
- cd rocksdb-6.15.4/
- make shared_lib static_lib
- sudo make install-shared install-static
- CGO_CFLAGS="-I/usr/local/include" CGO_LDFLAGS="-L/usr/local/lib/librocksdb.a"   go get github.com/tecbot/gorocksdb
-----
-
-== Install npm
+=== Install npm
 
 . Install npm
 +
@@ -183,7 +161,7 @@ Follow the directions https://golang.org/doc/install[here] to install Go.
  nvm install 12.13.0
 ----
 
-=== Verify
+==== Verify
 
 ....
 ```
@@ -193,7 +171,7 @@ v12.13.0 # This should match the version you installed with nvm
 ```
 ....
 
-== Install bats
+=== Install bats
 
 https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch.rpm.html[This] is a helpful resource
 
@@ -202,7 +180,7 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
  sudo rpm -Uvh bats-0.4.0-1.20141016git3b33a5a.el7.noarch.rpm
  ```
 
-== Install gradle
+=== Install gradle
 
 . Install gradle 6.7.1. Get it from https://gradle.org/releases/[here]. Use the binary version.
 . Add the following to your .bashrc file
@@ -212,7 +190,7 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
  source ~/.bashrc
 ----
 
-== Install Helm
+=== Install Helm
 
 . Follow the directions https://helm.sh/docs/intro/install/[here] which are summarized below.
 . Download the correct version of helm https://github.com/helm/helm/releases[here]
@@ -223,7 +201,7 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
  $ sudo cp helm /usr/local/bin/
 ----
 
-=== Verify
+==== Verify
 
 . Run the command to inspect the version of Helm that was just installed
 +
@@ -232,7 +210,7 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
  version.BuildInfo{Version:"v3.6.2", (...)}
 ----
 
-== Install Workflow Scripts
+=== Install Workflow Scripts
 
 . Clone the workflow repository:
 +
@@ -246,7 +224,7 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
 
 . Follow the steps in the https://github.com/stackrox/workflow/blob/master/README.md[repo's README]
 
-=== Verify
+==== Verify
 
 . Run roxhelp in the terminal to verify correct installation.
 +
@@ -257,3 +235,61 @@ https://centos.pkgs.org/7/epel-x86_64/bats-0.4.0-1.20141016git3b33a5a.el7.noarch
  /Users/ross/go/src/github.com/stackrox/workflow/bin/roxhelp <command_name> (to print help for command <command_name>)
  /Users/ross/go/src/github.com/stackrox/workflow/bin/roxhelp --list-all (to list all available Rox commands)
 ----
+
+// end of rhel end of fedora /////////////////////////////////////////////////////
+
+== Build on Nix
+
+`Nix` is both a package manager and a programming language, in which derivations for
+said package manager are written. While `Nix` was originally developed for `NixOS`, it
+supports any Linux distribution as well as macOS. The goal of the `Nix` project is
+to provide declarative and reproducible build environments.
+
+https://github.com/stackrox/stackrox-env[Stackrox-env] provides a development environment,
+which includes all necessary tools to contribute to the https://github.com/stackrox/stackrox[Stackrox project] regardless
+of whether Linux or macOS is the underlying operating system. This approach represents an
+alternative to the imperative approaches outlined in the xref:getting-started-linux.adoc[Linux] and xref:getting-started-darwin.adoc[macOS] guides.
+The `Nix` environment provides the following advantages over the conventional setup:
+
+* `infrastructure-as-code`: Changes to the environment are tracked by git and must pass a continuous integration pipeline.
+* A `git pull` is sufficient to keep the environment in sync.
+* The `Nix store` hermetically stores binaries, libraries and all dependencies. No pollution on a system level.
+* Rollbacks become trivial by reverting to an older git revision.
+
+=== Install Nix
+
+Follow the https://nixos.org/download.html#download-nix[instructions] to install `Nix` on your operating system.
+
+=== Download Stackrox Nix environment
+
+Follow the https://github.com/stackrox/stackrox-env[instructions] to download the
+Stackrox Nix environment. You may either choose to set the environment globally in your system
+by https://github.com/stackrox/stackrox-env#login-shell[sourcing the environment in your login shell], or
+source the environment locally using the https://github.com/stackrox/stackrox-env#direnv-integration[Direnv integration].
+
+=== Install workflow scripts (optional)
+
+. Clone the workflow repository:
++
+[,bash]
+----
+ # If you choose to follow the opinionated golang installation of putting everything into a "go" folder:
+ $ mkdir -p ~/go/src/github.com/stackrox/
+ $ cd ~/go/src/github.com/stackrox/
+ $ git clone git@github.com:stackrox/workflow.git
+----
+
+. Follow the steps in the https://github.com/stackrox/workflow/blob/master/README.md[repo's README]
+
+==== Verify
+
+. Run roxhelp in the terminal to verify correct installation.
++
+----
+ $ roxhelp
+
+ Usage:
+ /Users/ross/go/src/github.com/stackrox/workflow/bin/roxhelp <command_name> (to print help for command <command_name>)
+ /Users/ross/go/src/github.com/stackrox/workflow/bin/roxhelp --list-all (to list all available Rox commands)
+----
+

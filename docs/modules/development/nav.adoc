@@ -1,11 +1,14 @@
 * xref:index.adoc[]
-** Getting started
+** Building StackRox
 +
 --
 include::dev-getting-started:partial$nav.adoc[]
 --
-** xref:remote-debug-go.adoc[]
-** xref:remote-hot-reload.adoc[]
+** Developer Guides, Tips & Advice
+*** xref:remote-debug-go.adoc[]
+*** xref:remote-hot-reload.adoc[]
+*** xref:build-failures.adoc[]
+*** xref:troubleshooting.adoc[]
 ** Dependency management
 +
 --
@@ -16,5 +19,3 @@ include::dep-mgmt:partial$nav.adoc[]
 --
 include::dep-mgmt:partial$nav.adoc[]
 --
-** xref:build-failures.adoc[]
-** xref:troubleshooting.adoc[]
