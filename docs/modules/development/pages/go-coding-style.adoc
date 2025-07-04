@@ -7,6 +7,8 @@ author) something that you feel is non-obvious or not common sense and does not
 fall into what can be considered common Go style, please add it to this guide.
 Thanks!
 
+:toc:
+
 == On consistency
 
 There are often many ways to express the same thing (and not all of them are

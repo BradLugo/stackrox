@@ -6,16 +6,7 @@ and maintaining APIs. These guidelines help identify potential pitfalls and desi
 help developers avoid common mistakes and build more robust APIs. When in doubt, It is encouraged to seek resolution
 in slack channel https://redhat-internal.slack.com/archives/C05MMG2PP8A[#forum-acs-api-design].
 
-== Table of Contents
-
-* <<decoupling,Decoupling>>
-* <<naming-guidelines,Naming Guidelines>>
- ** <<decoupling,Decoupling>>
- ** <<grpc-service-name,gRPC Service Name>>
- ** <<grpc-method-name,gRPC Method Name>>
- ** <<grpc-message-name,gRPC Message Name>>
-* <<url-guidelines,URL Guidelines>>
-* <<deprecation-guidelines,Deprecation Guidelines>>
+:toc:
 
 == Decoupling
 

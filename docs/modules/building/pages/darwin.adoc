@@ -1,4 +1,5 @@
-= Getting Started on Darwin
+= Building on macOS/Darwin
+:toc:
 
 == (Optional) Change default shell to bash
 
