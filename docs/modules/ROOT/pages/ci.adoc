@@ -1,6 +1,5 @@
 = CI
-
-On this page, we'll go over what's involved in the StackRox CI process.
+:toc:
 
 // TODO(DO NOT MERGE): Add collector's process
 == Automated CI
