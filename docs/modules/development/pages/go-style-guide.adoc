@@ -1,4 +1,4 @@
-= Go coding style guide
+= Go Style Guide
 
 An overview of coding idioms and practiced style in stackrox/stackrox.
 
