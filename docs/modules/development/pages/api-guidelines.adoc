@@ -1,12 +1,11 @@
 = API Guidelines
+:toc:
 
 An overview of the set of standardized guidelines and practices to ensure that the APIs across different
 projects and teams adhere to a common structure and design. This consistency simplifies the process of understanding
 and maintaining APIs. These guidelines help identify potential pitfalls and design choices that could lead to issues to
 help developers avoid common mistakes and build more robust APIs. When in doubt, It is encouraged to seek resolution
 in slack channel https://redhat-internal.slack.com/archives/C05MMG2PP8A[#forum-acs-api-design].
-
-:toc:
 
 == Decoupling
 

@@ -1,4 +1,5 @@
 = Go Style Guide
+:toc:
 
 An overview of coding idioms and practiced style in stackrox/stackrox.
 
@@ -6,8 +7,6 @@ Whenever you encounter during code review (either as a reviewer or as a PR
 author) something that you feel is non-obvious or not common sense and does not
 fall into what can be considered common Go style, please add it to this guide.
 Thanks!
-
-:toc:
 
 == On consistency
 
