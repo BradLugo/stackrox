@@ -1,3 +1,2 @@
 * xref:dev-getting-started:darwin.adoc[]
 * xref:dev-getting-started:linux.adoc[]
-* xref:dev-getting-started:nix.adoc[]
