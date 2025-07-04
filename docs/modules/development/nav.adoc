@@ -3,6 +3,7 @@
 --
 include::building:partial$nav.adoc[]
 --
+** xref:architecture.adoc[]
 ** xref:go-style-guide.adoc[]
 ** xref:api-guidelines.adoc[]
 ** Developer Guides, Tips & Advice

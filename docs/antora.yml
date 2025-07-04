@@ -3,5 +3,6 @@ version: ~
 title: StackRox
 nav:
   - modules/development/nav.adoc
+  - modules/ROOT/nav.adoc
   - modules/vuln-audit/nav.adoc
   - modules/ROOT/nav.adoc
