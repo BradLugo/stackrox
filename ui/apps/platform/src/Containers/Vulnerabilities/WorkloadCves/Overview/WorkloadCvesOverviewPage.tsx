@@ -74,7 +74,7 @@ import { DEFAULT_VM_PAGE_SIZE } from '../../constants';
 
 import CVEsTableContainer from './CVEsTableContainer';
 import DeploymentsTableContainer from './DeploymentsTableContainer';
-import ImagesTableContainer, { imageListQuery } from './ImagesTableContainer';
+import ImagesTableContainer from './ImagesTableContainer';
 import WatchedImagesModal from '../WatchedImages/WatchedImagesModal';
 import UnwatchImageModal from '../WatchedImages/UnwatchImageModal';
 import VulnerabilityStateTabs, {
@@ -88,6 +88,7 @@ import ObservedCveModeSelect from './ObservedCveModeSelect';
 import { getViewStateDescription, getViewStateTitle } from './string.utils';
 import CreateReportDropdown from '../components/CreateReportDropdown';
 import CreateOnDemandReportModal from '../components/CreateOnDemandReportModal';
+import { imageListQuery } from '../Tables/ImageOverviewTable';
 
 export const entityTypeCountsQuery = gql`
     query getEntityTypeCounts($query: String) {
@@ -167,7 +168,7 @@ function WorkloadCvesOverviewPage() {
     const trackAppliedFilter = createFilterTracker(analyticsTrack);
 
     const {
-        getAbsoluteUrl,
+        urlBuilder,
         pageTitle,
         pageTitleDescription,
         baseSearchFilter,
@@ -368,6 +369,17 @@ function WorkloadCvesOverviewPage() {
         searchFilterConfigWithFeatureFlagDependency
     );
 
+    // Report-specific state management
+    const [isCreateOnDemandReportModalOpen, setIsCreateOnDemandReportModalOpen] = useState(false);
+    const isOnDemandReportsEnabled = isFeatureFlagEnabled('ROX_VULNERABILITY_ON_DEMAND_REPORTS');
+
+    const isOnDemandReportsVisible =
+        isOnDemandReportsEnabled &&
+        (viewContext === 'User workloads' ||
+            viewContext === 'Platform' ||
+            viewContext === 'All vulnerable images' ||
+            viewContext === 'Inactive images');
+
     const filterToolbar = (
         <AdvancedFiltersToolbar
             className="pf-v5-u-py-md"
@@ -386,7 +398,15 @@ function WorkloadCvesOverviewPage() {
             includeCveSeverityFilters={isViewingWithCves}
             includeCveStatusFilters={isViewingWithCves}
             defaultSearchFilterEntity={defaultSearchFilterEntity}
-        />
+        >
+            {isOnDemandReportsVisible && (
+                <CreateReportDropdown
+                    onSelect={() => {
+                        setIsCreateOnDemandReportModalOpen(true);
+                    }}
+                />
+            )}
+        </AdvancedFiltersToolbar>
     );
 
     const entityToggleGroup = (
@@ -396,17 +416,6 @@ function WorkloadCvesOverviewPage() {
             onChange={onEntityTabChange}
         />
     );
-
-    // Report-specific state management
-    const [isCreateOnDemandReportModalOpen, setIsCreateOnDemandReportModalOpen] = useState(false);
-    const isOnDemandReportsEnabled = isFeatureFlagEnabled('ROX_VULNERABILITY_ON_DEMAND_REPORTS');
-
-    const isOnDemandReportsVisible =
-        isOnDemandReportsEnabled &&
-        (viewContext === 'User workloads' ||
-            viewContext === 'Platform' ||
-            viewContext === 'All vulnerable images' ||
-            viewContext === 'Inactive images');
 
     return (
         <>
@@ -460,15 +469,6 @@ function WorkloadCvesOverviewPage() {
                         >
                             Manage watched images
                         </Button>
-                    )}
-                    {isOnDemandReportsVisible && (
-                        <FlexItem>
-                            <CreateReportDropdown
-                                onSelect={() => {
-                                    setIsCreateOnDemandReportModalOpen(true);
-                                }}
-                            />
-                        </FlexItem>
                     )}
                 </Flex>
             </PageSection>
@@ -543,7 +543,7 @@ function WorkloadCvesOverviewPage() {
                                                 {hasReadAccessForNamespaces && (
                                                     <Button
                                                         variant="secondary"
-                                                        href={getAbsoluteUrl(
+                                                        href={urlBuilder.vulnMgmtBase(
                                                             getNamespaceViewPagePath()
                                                         )}
                                                         component={LinkShim}

@@ -8,11 +8,9 @@ import (
 	"testing"
 
 	nodeCVEDS "github.com/stackrox/rox/central/cve/node/datastore"
-	nodeCVESearch "github.com/stackrox/rox/central/cve/node/datastore/search"
 	nodeCVEPostgres "github.com/stackrox/rox/central/cve/node/datastore/store/postgres"
 	pgStore "github.com/stackrox/rox/central/node/datastore/store/postgres"
 	nodeComponentDS "github.com/stackrox/rox/central/nodecomponent/datastore"
-	nodeComponentSearch "github.com/stackrox/rox/central/nodecomponent/datastore/search"
 	nodeComponentPostgres "github.com/stackrox/rox/central/nodecomponent/datastore/store/postgres"
 	"github.com/stackrox/rox/central/ranking"
 	mockRisks "github.com/stackrox/rox/central/risk/datastore/mocks"
@@ -78,12 +76,10 @@ func (suite *NodePostgresDataStoreTestSuite) SetupTest() {
 	suite.datastore = NewWithPostgres(storage, suite.mockRisk, ranking.NewRanker(), ranking.NewRanker())
 
 	componentStorage := nodeComponentPostgres.CreateTableAndNewStore(suite.ctx, suite.db, suite.gormDB)
-	componentSearcher := nodeComponentSearch.New(componentStorage)
-	suite.componentDataStore = nodeComponentDS.New(componentStorage, componentSearcher, suite.mockRisk, ranking.NewRanker())
+	suite.componentDataStore = nodeComponentDS.New(componentStorage, suite.mockRisk, ranking.NewRanker())
 
 	cveStorage := nodeCVEPostgres.CreateTableAndNewStore(suite.ctx, suite.db, suite.gormDB)
-	cveSearcher := nodeCVESearch.New(cveStorage)
-	cveDataStore, err := nodeCVEDS.New(cveStorage, cveSearcher, concurrency.NewKeyFence())
+	cveDataStore, err := nodeCVEDS.New(cveStorage, concurrency.NewKeyFence())
 	suite.NoError(err)
 	suite.nodeCVEDataStore = cveDataStore
 }
