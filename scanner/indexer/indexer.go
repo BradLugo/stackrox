@@ -46,6 +46,7 @@ import (
 	pkgversion "github.com/stackrox/rox/pkg/version"
 	"github.com/stackrox/rox/scanner/config"
 	"github.com/stackrox/rox/scanner/datastore/postgres"
+	"github.com/stackrox/rox/scanner/indexer/dist/hummingbird"
 	"github.com/stackrox/rox/scanner/indexer/manifest"
 	"github.com/stackrox/rox/scanner/internal/httputil"
 	"github.com/stackrox/rox/scanner/internal/version"
@@ -84,6 +85,7 @@ func ecosystems(ctx context.Context) []*ccindexer.Ecosystem {
 		alpine.NewEcosystem(ctx),
 		dpkg.NewEcosystem(ctx),
 		gobin.NewEcosystem(ctx),
+		hummingbird.NewEcosystem(ctx),
 		java.NewEcosystem(ctx),
 		nodejs.NewEcosystem(ctx),
 		python.NewEcosystem(ctx),

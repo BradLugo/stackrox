@@ -138,12 +138,13 @@ export function getDefaultZeroCveSortOption(entityTab: WorkloadEntityTab): SortO
  * The priority order of supported operating systems when displaying summary and link information.
  */
 const distroPriorityMap = {
-    rhel: 1,
-    centos: 2,
-    ubuntu: 3,
-    debian: 4,
-    alpine: 5,
-    amzn: 6,
+    hummingbird: 1,
+    rhel: 2,
+    centos: 3,
+    ubuntu: 4,
+    debian: 5,
+    alpine: 6,
+    amzn: 7,
     other: Infinity,
 } as const;
 const distroKeys = Object.keys(distroPriorityMap) as (keyof typeof distroPriorityMap)[];

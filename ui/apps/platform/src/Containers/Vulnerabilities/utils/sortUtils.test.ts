@@ -76,6 +76,19 @@ describe('sortCveDistroList', () => {
             { distro: 'amzn', operatingSystem: 'amzn:2018.03' },
             { distro: 'other', operatingSystem: 'windows:xp' },
         ]);
+
+        summaries.push({ operatingSystem: 'hummingbird:20251124' });
+        expect(sortCveDistroList(summaries)).toEqual([
+            { distro: 'hummingbird', operatingSystem: 'hummingbird:20251124' },
+            { distro: 'rhel', operatingSystem: 'rhel:9' },
+            { distro: 'centos', operatingSystem: 'centos:8' },
+            { distro: 'ubuntu', operatingSystem: 'ubuntu:20.04' },
+            { distro: 'debian', operatingSystem: 'debian:9' },
+            { distro: 'alpine', operatingSystem: 'alpine:v.3.2' },
+            { distro: 'amzn', operatingSystem: 'amzn:2' },
+            { distro: 'amzn', operatingSystem: 'amzn:2018.03' },
+            { distro: 'other', operatingSystem: 'windows:xp' },
+        ]);
     });
 });
 
